@@ -1,6 +1,6 @@
 # Creating Precise Models by Discovering Long-term Dependencies in Process Trees
 
-Given a log path and set of parameters, the dependency-miner algorithm is responsible for discovering long-term dependencies between the events and results into a precise Petri net which include mined dependencies. Added rules and evaluation metrics are computed and returned.
+Given a log path and set of parameters, the dependency_miner algorithm is responsible for discovering long-term dependencies between the events and results into a precise Petri net which include mined dependencies. Added rules and evaluation metrics are computed and returned.
 
 Call miner(logpath, support, confidence, lift, soundness)
 It takes as input
@@ -15,11 +15,11 @@ The resulting precise Petri net can be found in the current location with the sa
 
 ## Installation
 
-```pip install dependency-miner-pm4py```
+```pip install dependency_miner_pm4py```
 
 ## How to use it?
 
-Install dependency_miner_pm4py package. Following, from dependency-miner import apply_trans.
+Install dependency_miner_pm4py package. Following, from dependency_miner import miner.
 
         Example: 
         log_path = "<path>\<file>.xes"

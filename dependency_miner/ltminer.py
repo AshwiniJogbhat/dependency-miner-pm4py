@@ -2,7 +2,7 @@ import copy
 import os
 from os import listdir
 from os.path import isfile, join
-import settings
+import dependency_miner.settings as settings
 #import Miner.to_petri_net_bordered as discover_net
 #from Miner.helper_functions import *
 
@@ -52,8 +52,15 @@ def miner(log_path, support, confidence, lift, sound):
     settings.init()
     eventlogs, attributes, log, tree, net, im, fm = set_event_log(log_path)
     #process_tree_path = display_process_tree()
-    
+    if sound == 'Yes' or sound == 'yes':
+        sound = 'on'
     net_path, precision, fitness, rules, pnml_path =  repair_petri_net(support, confidence, lift, sound)
+    
+    print("Added rules in the repaired Petri net", rules)
+    print("Precision of the repaired Petri net", precision)
+    print("Fitness of the repaired Petri net", fitness)
+    print("Saved Path of the repaired Petri net in .SVG format", net_path)
+    print("Saved Path of the repaired Petri net in .pnml format", pnml_path)
     
     return rules, precision, fitness, net_path, pnml_path
 
@@ -239,7 +246,8 @@ def export_pnml(precise_net, im, fm, net_name=None):
         net_name = net_name+".pnml"
     
     settings.PNML_PATH = None
-    pnml_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), net_name)
+    log_path = os.path.dirname(copy.deepcopy(settings.EVENT_LOG_PATH))
+    pnml_path = os.path.join(log_path, net_name)
     pnml_exporter.apply(precise_net, im, pnml_path)
     pnml_exporter.apply(precise_net, im, pnml_path , final_marking=fm)
     settings.PNML_PATH = pnml_path
@@ -858,7 +866,8 @@ def display_petri_net(net=None):
     log_name = settings.EVENT_LOG_NAME
     log_name = log_name.rsplit('.', 1)[0]
     log_name = log_name.replace(" ", "")
-    image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"{log_name}.SVG")
+    log_path = os.path.dirname(copy.deepcopy(settings.EVENT_LOG_PATH))
+    image_path = os.path.join(log_path, f"{log_name}.SVG")
     pn_visualizer.save(gviz, image_path)
     return image_path
 
@@ -988,18 +997,12 @@ def deepcopy_net():
 
 
 if __name__ == "__main__":
-    file_path = "<Path>"
+    file_path = "C://Users//Ashwini Jogbhat//OneDrive//Desktop//Test//demo1.xes"
     support = "0.2"
     confidence = "0.3"
     lift = "1.0"
     sound = "No"
-    if sound == 'Yes' or sound == 'yes':
-        sound = 'on'
     
     rules, precision, fitness, net_path, pnml_path =  miner(file_path, support, confidence, lift, sound)
-    print("Added rules in the repaired Petri net", rules)
-    print("Precision of the repaired Petri net", precision)
-    print("Fitness of the repaired Petri net", fitness)
-    print("Saved Path of the repaired Petri net in .SVG format", net_path)
-    print("Saved Path of the repaired Petri net in .pnml format", pnml_path)
+    
     
