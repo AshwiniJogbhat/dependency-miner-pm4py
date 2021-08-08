@@ -997,7 +997,7 @@ def deepcopy_net():
 
 
 if __name__ == "__main__":
-    file_path = "C://Users//Ashwini Jogbhat//OneDrive//Desktop//Test//demo1.xes"
+    file_path = "<path>\<file>.xes"
     support = "0.2"
     confidence = "0.3"
     lift = "1.0"

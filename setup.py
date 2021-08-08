@@ -7,7 +7,7 @@ README = (CURRENT_PATH/"README.md").read_text()
 
 setup(
     name="dependency_miner_pm4py",
-    version="1.0.3",
+    version="1.0.1",
     description="It mines long-term dependencies between events and results into a Precise model",
     long_description=README,
     long_description_content_type="text/markdown",
