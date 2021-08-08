@@ -1,15 +1,15 @@
 # Creating Precise Models by Discovering Long-term Dependencies in Process Trees
 
-Given a log path and set of parameters, the dependency_miner algorithm is responsible for discovering long-term dependencies between the events and results into a precise Petri net which include mined dependencies. Added rules and evaluation metrics are computed and returned.
+Given a log path and set of parameters, the dependency_miner algorithm is responsible for discovering long-term dependencies between the events and results into a precise Petri net by repairing the free-choice Petri net which includes the discovered rules. Added set of rules and computed evaluation metrics are returned.
 
 Call miner(logpath, support, confidence, lift, soundness)
 It takes as input
 	
-        1. logpath (str): Path of event log
+        1. log_path (str): Path of event log
         2. support (str): Threshold value for support measure 
         3. confidence (str): Threshold value for confidence measure
         4. lift (str): Threshold value for lift measure, default min value = 1
-        5. sound (str) : Soundness requirement if user wants sound model
+        5. sound (str) : Soundness requirement if user wants sound model , "Yes/No"
 
 The resulting precise Petri net can be found in the current location with the same name as that of input event log in .pnml and .svg format
 
