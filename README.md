@@ -19,7 +19,7 @@ The resulting precise Petri net can be found in the current location with the sa
 
 ## How to use it?
 
-Install dependency_miner_pm4py package. Following, from dependency_miner import miner.
+Install dependency_miner_pm4py package. Following, from dependency_miner.ltminer import miner
 
         Example: 
         log_path = "<path>\<file>.xes"
