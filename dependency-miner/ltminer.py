@@ -49,6 +49,7 @@ def miner(log_path, support, confidence, lift, sound):
         net_path (str) : Path of the .SVG file generated for the repaired net
         pnml_path (str) : Path of the .pnml file generated for the repaired net
     """
+    settings.init()
     eventlogs, attributes, log, tree, net, im, fm = set_event_log(log_path)
     #process_tree_path = display_process_tree()
     
@@ -987,7 +988,6 @@ def deepcopy_net():
 
 
 if __name__ == "__main__":
-    settings.init()
     file_path = "<Path>"
     support = "0.2"
     confidence = "0.3"
