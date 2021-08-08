@@ -1,4 +1,4 @@
-# Creating Sound Precise models using Association rules learning
+# Creating Precise Models by Discovering Long-term Dependencies in Process Trees
 
 Given a log path and set of parameters, the dependency-miner algorithm is responsible for discovering long-term dependencies between the events and results into a precise Petri net which include mined dependencies. Added rules and evaluation metrics are computed and returned.
 
